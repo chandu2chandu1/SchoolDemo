@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using System.Data.Entity;
+using SchoolDemo.Core.Domain;
 
 namespace SchoolDemo.Models
 {
@@ -20,8 +22,12 @@ namespace SchoolDemo.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+
+        public DbSet<School> Schools { get; set; }
+        public DbSet<Student> Students { get; set; }
+
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("SchoolConnection", throwIfV1Schema: false)
         {
         }
         
