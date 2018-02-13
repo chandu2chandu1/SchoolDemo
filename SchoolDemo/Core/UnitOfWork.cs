@@ -11,9 +11,11 @@ namespace SchoolDemo.Core
     {
         private readonly ApplicationDbContext _context;
 
-        public UnitOfWork(ApplicationDbContext context)
+        public UnitOfWork()
         {
-            _context = context;
+            _context = new ApplicationDbContext();
+            Students = new StudentRepository(_context);
+            Schools = new SchoolRepository(_context);
         }
 
         public IStudentRepository Students { get; private set; }

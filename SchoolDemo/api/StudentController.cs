@@ -27,9 +27,12 @@ namespace SchoolDemo.api
         //    _testClass = test;
         //}
 
-        public IEnumerable<Student> GetStudents()
+        public IHttpActionResult GetStudents()
         {
-            return _unitOfWork.Students.GetAllBoys();
+            IEnumerable<Student> allBoyStudents = _unitOfWork.Students.GetAllBoys();
+            if (allBoyStudents != null && allBoyStudents.Count() >0)
+                return Ok(allBoyStudents);
+            return Ok("No students found.. I am sorry!!");
         }
 
     }

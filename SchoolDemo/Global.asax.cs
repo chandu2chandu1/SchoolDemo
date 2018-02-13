@@ -31,10 +31,6 @@ namespace SchoolDemo
                 .As<IUnitOfWork>()
                 .InstancePerDependency();
 
-            builder.RegisterType<ApplicationDbContext>()
-                .As<Microsoft.AspNet.Identity.EntityFramework.IdentityDbContext<ApplicationUser>>()
-                .InstancePerDependency();
-
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             
             var container = builder.Build();
