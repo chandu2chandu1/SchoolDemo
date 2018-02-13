@@ -23,9 +23,9 @@ namespace SchoolDemo.Core.Repositories
             return Context.Set<School>().Take(5);
         }
 
-        public GetSchoolByStudentId(Student student)
+        public School GetSchoolByStudentId(Student student)
         {
-            return Context.Set<School>().Where(s => s.Students == student);
+            return Context.Set<School>().Where(s => s.Students == student).FirstOrDefault();
         }
     }
 }

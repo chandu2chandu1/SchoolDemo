@@ -19,5 +19,15 @@ namespace SchoolDemo.Core
         public IStudentRepository Students { get; private set; }
 
         public ISchoolRepository Schools { get; private set; }
+
+        public int Complete()
+        {
+            return _context.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            _context.Dispose();
+        }
     }
 }

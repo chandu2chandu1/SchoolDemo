@@ -11,5 +11,6 @@ namespace SchoolDemo.Core
     {
         IStudentRepository Students { get; }
         ISchoolRepository Schools { get; }
+        int Complete();
     }
 }
