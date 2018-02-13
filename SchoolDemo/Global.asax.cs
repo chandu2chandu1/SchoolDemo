@@ -12,6 +12,7 @@ using Autofac.Integration.WebApi;
 using SchoolDemo.Controllers;
 using SchoolDemo.api;
 using SchoolDemo.Core;
+using System.Data.Entity;
 using SchoolDemo.Core.Repositories;
 using SchoolDemo.Models;
 
@@ -29,6 +30,9 @@ namespace SchoolDemo
 
             builder.RegisterType<UnitOfWork>()
                 .As<IUnitOfWork>()
+                .WithParameter(
+                    new TypedParameter(typeof(DbContext), new ApplicationDbContext()
+                ))
                 .InstancePerDependency();
 
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());

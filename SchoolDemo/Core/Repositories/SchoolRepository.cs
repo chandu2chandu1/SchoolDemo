@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using SchoolDemo.Models;
 using SchoolDemo.Core.Domain;
+using System.Data.Entity;
 
 namespace SchoolDemo.Core.Repositories
 {
@@ -15,7 +16,7 @@ namespace SchoolDemo.Core.Repositories
 
     public class SchoolRepository:Repository<School>, ISchoolRepository
     {
-        public SchoolRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public SchoolRepository(DbContext dbContext) : base(dbContext)
         {}
 
         public IEnumerable<School> GetSchoolsWithMostStudents()

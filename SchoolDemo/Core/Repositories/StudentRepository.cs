@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using SchoolDemo.Core.Domain;
 using SchoolDemo.Models;
+using System.Data.Entity;
 
 namespace SchoolDemo.Core.Repositories
 {
@@ -17,7 +18,7 @@ namespace SchoolDemo.Core.Repositories
     public class StudentRepository:Repository<Student>, IStudentRepository
     {
 
-        public StudentRepository(ApplicationDbContext dbContext):base(dbContext) {
+        public StudentRepository(DbContext dbContext):base(dbContext) {
         }
 
         public IEnumerable<Student> GetAllBoys()

@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using SchoolDemo.Models;
+using System.Data.Entity;
 using SchoolDemo.Core.Repositories;
 
 namespace SchoolDemo.Core
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly ApplicationDbContext _context;
+        private readonly DbContext _context;
 
-        public UnitOfWork()
+        public UnitOfWork(DbContext context)
         {
-            _context = new ApplicationDbContext();
+            _context = context;
             Students = new StudentRepository(_context);
             Schools = new SchoolRepository(_context);
         }
